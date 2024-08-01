@@ -22,15 +22,15 @@ pipeline {
                 }
             }
         }
-        stage ('SSH to Apache Server') {
-            steps {
-                script {
-                    sshagent(credentials: [ubuntu]) {
-                        sh 'ssh -o StrictHostKeyChecking=no ubuntu@43.205.99.187 "apt-get update"'
-                    }
-                }
-            }
-        }
+        // stage ('SSH to Apache Server') {
+        //     steps {
+        //         script {
+        //             sshagent(credentials: [ubuntu]) {
+        //                 sh 'ssh -o StrictHostKeyChecking=no ubuntu@43.205.99.187 "apt-get update"'
+        //             }
+        //         }
+        //     }
+        // }
         stage ('restart Apache') {
             steps {
                 script {
