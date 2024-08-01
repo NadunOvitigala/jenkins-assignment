@@ -5,7 +5,7 @@ pipeline {
         GIT_CREDENTIALS_ID = 'jenkins-assignment'
         GIT_REPO_URL = 'https://github.com/NadunOvitigala/jenkins-assignment.git'
         GIT_Branch = 'dev'
-        SITE_URL = 'http://3.6.89.163/'
+        SITE_URL = 'http://3.110.148.253/'
     }
     stages {
         stage ('Upload Artifacts') {
