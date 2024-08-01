@@ -22,15 +22,13 @@ pipeline {
                 }
             }
         }
-        // stage ('SSH to Apache Server') {
-        //     steps {
-        //         script {
-        //             sshagent(credentials: [ubuntu]) {
-        //                 sh 'ssh -o StrictHostKeyChecking=no ubuntu@43.205.99.187 "apt-get update"'
-        //             }
-        //         }
-        //     }
-        // }
+        stage ('SSH to Apache Server') {
+            steps {
+                script {
+                    sshPublisher(publishers: [sshPublisherDesc(configName: 'ubuntu', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sudo apt-get restart apache2.service', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/var/www/html/', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'index.html')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                }
+            }
+        }
         stage ('restart Apache') {
             steps {
                 script {
