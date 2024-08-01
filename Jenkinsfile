@@ -19,7 +19,15 @@ pipeline {
             steps {
                 script {
                     git branch:env.GIT_Branch, credentialsId: env.GIT_CREDENTIALS_ID, url: env.GIT_REPO_URL
-                    sh 'sudo cp index.html /var/www/html/index.html'
+                }
+            }
+        }
+        stage ('SSH to Apache Server') {
+            steps {
+                script {
+                    sshagent(credentials: [SSH_CREDENTIALS_ID]) {
+                        sh 'ssh -o StrictHostKeyChecking=no your-username@your-server-ip "your-bash-command"'
+                    }
                 }
             }
         }
