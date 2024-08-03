@@ -11,7 +11,7 @@ pipeline {
         stage ('sonarqube') {
             steps {
                 script {
-                    sh 'sudo chown root:root /root'
+                    sh 'chown -R root:root /root'
                 }
             }
         }
