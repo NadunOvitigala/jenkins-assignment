@@ -11,7 +11,7 @@ pipeline {
         stage ('sonarqube') {
             steps {
                 script {
-                    sh 'sonar-scanner -Dsonar.projectKey=jenkins-assignment -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqp_1e53a50b7492d8564d573ae0a0bca186fa19d0bb'
+                    sh 'sudo chown root:root /root'
                 }
             }
         }
