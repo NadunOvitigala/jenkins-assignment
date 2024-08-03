@@ -5,13 +5,13 @@ pipeline {
         GIT_CREDENTIALS_ID = 'jenkins-assignment'
         GIT_REPO_URL = 'https://github.com/NadunOvitigala/jenkins-assignment.git'
         GIT_Branch = 'dev'
-        SITE_URL = 'http://52.66.145.214/'
+        SITE_URL = 'http://13.233.140.64/'
     }
     stages {
         stage ('sonarqube') {
             steps {
                 script {
-                    sh 'chown -R root:root /root'
+                    sh 'sonar-scanner -Dsonar.projectKey=jenkins-assignment -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqp_524d836223a10583b80f2bc2bb83042ff7734a29'
                 }
             }
         }
