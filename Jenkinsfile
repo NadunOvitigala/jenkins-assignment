@@ -11,14 +11,12 @@ pipeline {
         stage ('sonarqube') {
             steps {
                 script {
-                    withSonarQubeEnv(credentialsId: 'sonar') {
-                        sh '''
-                            sonar-scanner \
-                            -Dsonar.projectKey=jenkins-assignment \
-                            -Dsonar.host.url=http://43.205.206.179:9000 \
-                            -Dsonar.login=sqp_1e53a50b7492d8564d573ae0a0bca186fa19d0bb
-                        '''
-                    }
+                    sh '''
+                        sonar-scanner \
+                        -Dsonar.projectKey=jenkins-assignment \
+                        -Dsonar.host.url=http://43.205.206.179:9000 \
+                        -Dsonar.login=sqp_1e53a50b7492d8564d573ae0a0bca186fa19d0bb
+                    '''
                 }
             }
         }
