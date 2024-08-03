@@ -11,6 +11,7 @@ pipeline {
         stage ('sonarqube') {
             steps {
                 script {
+                    sh 'whoami'
                     sh 'sonar-scanner -Dsonar.projectKey=jenkins-assignment -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqp_524d836223a10583b80f2bc2bb83042ff7734a29'
                 }
             }
