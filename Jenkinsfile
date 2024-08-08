@@ -5,7 +5,7 @@ pipeline {
         GIT_CREDENTIALS_ID = 'jenkins-assignment'
         GIT_REPO_URL = 'https://github.com/NadunOvitigala/jenkins-assignment.git'
         GIT_Branch = 'dev'
-        SITE_URL = 'http://13.233.140.64/'
+        SITE_URL = 'http://3.108.44.192/'
     }
     stages {
         stage ('sonarqube') {
